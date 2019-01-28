@@ -1,10 +1,11 @@
 package dependencyinjection;
 
-public class SetterInjection {
+public class Person {
 
 	private String name;
 	private String surname;
 	private int age;
+	private Address address;
 
 	public String getName() {
 		return name;
@@ -30,9 +31,19 @@ public class SetterInjection {
 		this.age = age;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	@Override
 	public String toString() {
-		return "SetterInjection [name=" + name + ", surname=" + surname + ", age=" + age + "]";
+		return "Person [name=" + name + ", surname=" + surname + ", age=" + age
+				+ ", address=" + address + "]";
 	}
+
 
 }

@@ -5,14 +5,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SetterInjectionTest {
 
+	private static ApplicationContext context;
+
 	public static void main(String[] args) {
 
-		ApplicationContext context = new ClassPathXmlApplicationContext("dependency_injection_beans.xml");
+		context = new ClassPathXmlApplicationContext("dependency_injection_beans.xml");
 
-		SetterInjection setterInjection1 = context.getBean("person1Id",SetterInjection.class);
-		SetterInjection setterInjection2 = context.getBean("person2Id",SetterInjection.class);
-		System.out.println(setterInjection1);
-		System.out.println(setterInjection2);
+		Person person = context.getBean("person1Id", Person.class);
+		System.out.println(person);
 
 	}
 
