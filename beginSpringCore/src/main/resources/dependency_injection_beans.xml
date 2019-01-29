@@ -15,4 +15,17 @@
 		<property name="province" value="Edirne" />
 		<property name="district" value="Keşan" />
 	</bean>
+	
+	<bean id="personConstructorInjection" class="dependencyinjection.Person">
+		<constructor-arg value="Berkay"/>
+		<constructor-arg value="Demirel"/>
+		<constructor-arg value="25"/>
+		<constructor-arg ref="addressConstructorInjection"/>
+	</bean>
+	
+	<bean id="addressConstructorInjection" class="dependencyinjection.Address">
+		<constructor-arg value="İstanbul"/>
+		<constructor-arg value="Kadıköy"/>
+	</bean>
+	
 </beans>

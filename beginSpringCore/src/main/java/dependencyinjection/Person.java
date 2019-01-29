@@ -7,6 +7,18 @@ public class Person {
 	private int age;
 	private Address address;
 
+	public Person(String name, String surname, int age, Address address) {
+		super();
+		this.name = name;
+		this.surname = surname;
+		this.age = age;
+		this.address = address;
+	}
+
+	public Person() {
+		super();
+	}
+
 	public String getName() {
 		return name;
 	}

@@ -5,6 +5,16 @@ public class Address {
 	private String province;
 	private String district;
 
+	public Address(String province, String district) {
+		super();
+		this.province = province;
+		this.district = district;
+	}
+
+	public Address() {
+		super();
+	}
+
 	public String getProvince() {
 		return province;
 	}
