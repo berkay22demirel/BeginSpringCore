@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+        <bean id="personIdByName" class="autowiringXML.Person" autowire="byName">
+		    <property name="name" value="Berkay" />
+		    <property name="surname" value="ByName" />
+		    <property name="age" value="24" />
+		</bean>
+		
+		<bean id="personIdByType" class="autowiringXML.Person" autowire="byType">
+		    <property name="name" value="Berkay" />
+		    <property name="surname" value="ByType" />
+		    <property name="age" value="24" />
+		</bean>
+		
+		<bean id="personIdConstructor" class="autowiringXML.Person" autowire="constructor">
+		    <property name="name" value="Berkay" />
+		    <property name="surname" value="Constructor" />
+		    <property name="age" value="24" />
+		</bean>
+		
+		<bean id="address" class="autowiringXML.Address">
+		    <property name="province" value="Istanbul" />
+		    <property name="district" value="Kadıköy" />
+		</bean>
+        
+</beans>
