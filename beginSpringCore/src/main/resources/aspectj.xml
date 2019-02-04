@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop.xsd ">
+
+
+	<bean id="personServiceId" class="aspectjxml.PersonService" />
+	<bean id="loggerId" class="aspectjxml.Logger" />
+
+	<aop:config>
+		<aop:aspect id="myaspect" ref="loggerId">
+		
+			<aop:pointcut id="pointCutBeforeId" expression="execution(* *.savePerson(..))" />
+			<aop:before method="logBefore" pointcut-ref="pointCutBeforeId" />
+			
+			<aop:pointcut id="pointCutAfterId" expression="execution(* *.updatePerson(..))" />
+			<aop:after method="logAfter" pointcut-ref="pointCutAfterId" />
+			
+			<aop:pointcut id="pointCutAfterReturningId" expression="execution(* *.getPersonId(..))" />
+			<aop:after-returning method="logAfterReturning" returning="resultValue" pointcut-ref="pointCutAfterReturningId" />
+			
+			<aop:pointcut id="pointCutAfterThrowingId" expression="execution(* *.deletePerson(..))" />
+			<aop:after-throwing method="logAfterThrowing" throwing="thrownException" pointcut-ref="pointCutAfterThrowingId"  />
+		
+   			<aop:pointcut id="pointCutAround" expression="execution(* *.getAllPersons(..))" />
+			<aop:around method="logAround" pointcut-ref="pointCutAround"  />
+			
+		</aop:aspect>
+	</aop:config>
+
+</beans>
